@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* text-align: center; */
+      }
+      body {
+        background-color: #ebebeb;
+      }
+      .full {
+        height: 100vh;
+        width: 100vw;
+        /* text-align: center; */
+      }
+      .watch {
+        position: relative;
+        height: 600px;
+        width: 600px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .watch img {
+        position: absolute;
+        height: 100%;
+        /* top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+        transform-origin: center;
+        /* transform-origin: 0 0; */
+      }
+      button {
+        color: #ebebeb;
+        background-color: #202020;
+        border: none;
+        padding: 15px 40px;
+        font-size: 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        /* margin-top: 30px; */
+        margin: 50px auto;
+      }
+      .button {
+        text-align: center;
+      }
+    </style>
+    <div class="full">
+      <div class="watch">
+        <img id="wb" src="w-c-b.png" alt="" />
+        <img id="n" src="b-n.png" alt="" />
+        <img id="h" src="b-h.png" alt="" />
+        <img id="m" src="b-m.png" alt="" />
+        <img id="sec" src="sec.png" alt="" />
+      </div>
+      <div class="button">
+        <button onclick="changeMode()" id="mode">Light Mode</button>
+      </div>
+    </div>
+    <script>
+      let s = Number("0");
+      let now = new Date();
+      let hour = Number(now.getHours());
+      let minute = Number(now.getMinutes());
+      setInterval(() => {
+        s += 6;
+        hour = hour > 11 ? hour - 12 : hour;
+        m = (360 / 60) * minute;
+        h = (360 / 12) * hour + m / 12;
+        console.log(hour, h);
+        document.getElementById("sec").style.transform = `rotate(${s}deg)`;
+        document.getElementById("h").style.transform = `rotate(${h}deg)`;
+        document.getElementById("m").style.transform = `rotate(${m}deg)`;
+      }, 1000);
+
+      function changeMode() {
+        // console.log("ok");
+        let mode = document.getElementById("mode");
+        if (mode.innerHTML == "Dark Mode") {
+          mode.innerHTML = "Light Mode";
+          mode.style.color = "#EBEBEB";
+          mode.style.backgroundColor = "#202020";
+          document.body.style.backgroundColor = "#ebebeb";
+
+          document.getElementById("wb").src = "w-c-b.png";
+          document.getElementById("n").src = "b-n.png";
+          document.getElementById("h").src = "b-h.png";
+          document.getElementById("m").src = "b-m.png";
+        } else {
+          mode.innerHTML = "Dark Mode";
+          mode.style.color = "#202020";
+          mode.style.backgroundColor = "#EBEBEB";
+          document.body.style.backgroundColor = "#202020";
+          document.getElementById("wb").src = "b-c-b.png";
+          document.getElementById("n").src = "w-n.png";
+          document.getElementById("h").src = "w-h.png";
+          document.getElementById("m").src = "w-m.png";
+        }
+      }
+    </script>
+  </body>
+</html>
