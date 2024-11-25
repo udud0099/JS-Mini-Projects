@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <span class="num" data-val="450">000</span>
+      <span class="num" data-val="150">000</span>
+      <span class="num" data-val="350">000</span>
+      <span class="num" data-val="50">000</span>
+    </div>
+
+    <script>
+      let valueDisplays = document.querySelectorAll(".num");
+      let interval = 5000;
+
+      valueDisplays.forEach((valueDisplay) => {
+        let startValue = 0;
+        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+        let duration = Math.floor(interval / endValue);
+        let counter = setInterval(() => {
+          startValue += 1;
+          valueDisplay.textContent = startValue;
+          if (startValue == endValue) {
+            clearInterval(counter);
+          }
+        }, duration);
+      });
+    </script>
+  </body>
+</html>
