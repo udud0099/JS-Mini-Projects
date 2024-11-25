@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test math rancom range</title>
+  </head>
+  <body>
+    <script>
+      // plz plz don't use Math.ceil beacuse math.random can give 0 also
+      // only use math.floar + 1 way
+      let min = 10;
+      let max = 20;
+      console.log(Math.floor(Math.random() * (max - min + 1) + min));
+    </script>
+  </body>
+</html>

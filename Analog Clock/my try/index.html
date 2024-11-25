@@ -70,7 +70,7 @@
       let hour = Number(now.getHours());
       let minute = Number(now.getMinutes());
       setInterval(() => {
-        s += 6;
+        s += 0.06;
         hour = hour > 11 ? hour - 12 : hour;
         m = (360 / 60) * minute;
         h = (360 / 12) * hour + m / 12;
@@ -78,7 +78,7 @@
         document.getElementById("sec").style.transform = `rotate(${s}deg)`;
         document.getElementById("h").style.transform = `rotate(${h}deg)`;
         document.getElementById("m").style.transform = `rotate(${m}deg)`;
-      }, 1000);
+      }, 10);
 
       function changeMode() {
         // console.log("ok");
