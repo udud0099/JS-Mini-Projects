@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .popupBox {
+        display: none;
+      }
+    </style>
+    <div>
+      <button id="viewSocialMedia">View Social Media</button>
+    </div>
+
+    <div class="popupBox" id="popupBox">
+      <div class="headSec">
+        <div class="title">
+          <h1>Share More</h1>
+        </div>
+        <div>
+          <button id="closeSocialMedia">X</button>
+        </div>
+      </div>
+      <div class="socialMediaIcons">
+        <p>Share this link</p>
+        <button>F</button>
+        <button>F</button>
+        <button>F</button>
+        <button>F</button>
+        <button>F</button>
+      </div>
+      <div class="copyLink">
+        <input type="text" value="www.xyz.com" />
+        <button>Copy</button>
+      </div>
+    </div>
+    <script>
+      const showHide = document.getElementById("viewSocialMedia");
+      const popupBox = document.getElementById("popupBox");
+      const closeSocialMedia = document.getElementById("closeSocialMedia");
+      showHide.addEventListener("click", () => {
+        popupBox.style.display = "block";
+      });
+      closeSocialMedia.addEventListener("click", () => {
+        popupBox.style.display = "none";
+      });
+    </script>
+    <!-- https://www.youtube.com/watch?v=-gssMGtHwK4&list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3
+   CodingNepal v-78
+  --></body>
+</html>
