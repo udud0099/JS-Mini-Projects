@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Navigation Bar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mainPage">
+      <div class="sideNavbar active mobActive" id="sideNavbar">
+        <!--  active -->
+        <!-- navbar logo sec -->
+        <div class="logoSec">
+          <div class="logo">
+            <img src="aa.png" alt="" />
+          </div>
+          <div class="sideCon" id="des">
+            <span class="des"><</span>
+
+            <div class="mob" id="mob">
+              <span class="mobOp">=</span>
+              <span class="mobClo">X</span>
+            </div>
+          </div>
+        </div>
+        <!-- nav links -->
+        <div class="navbar">
+          <div class="navTop">
+            <div class="navlink"># <span>Dashboard1</span></div>
+            <div class="navlink">$ <span>Dashboard2</span></div>
+            <div class="navlink">& <span>Dashboard3</span></div>
+            <div class="navlink">% <span>Dashboard</span></div>
+            <div class="navlink">@ <span>Dashboard</span></div>
+            <div class="navlink">& <span>Dashboard</span></div>
+            <div class="navlink">$ <span>Dashboard</span></div>
+            <div class="navlink">% <span>Dashboard</span></div>
+          </div>
+          <div class="navBott">
+            <div class="navlink">& <span>Profile</span></div>
+            <div class="navlink">@ <span>Logout</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const togSideNav = document.getElementById("des");
+      const sideNavbar = document.getElementById("sideNavbar");
+      const mob = document.getElementById("mob");
+      togSideNav.addEventListener("click", () => {
+        sideNavbar.classList.toggle("active");
+        sideNavbar.classList.toggle("mobActive");
+        console.log("ok");
+      });
+    </script>
+  </body>
+</html>

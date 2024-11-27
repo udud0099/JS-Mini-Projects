@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --p: #00005c;
+  --s: #e4e4e4;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--s);
+}
+.mainPage {
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.sideNavbar {
+  position: relative;
+  background-color: var(--p);
+  color: var(--s);
+  border-radius: 10px;
+  height: 100%;
+}
+.logoSec {
+  width: 100%;
+}
+.logoSec .logo {
+  display: inline-block;
+}
+.logoSec .logo img {
+  width: 40px;
+}
+.logoSec .sideCon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--s);
+  color: var(--p);
+  font-size: 20px;
+  text-align: center;
+  padding-top: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar {
+  height: 100%;
+}
+.navbar .navTop {
+  margin: 20px 0;
+}
+.navbar .navBott {
+  bottom: 20px;
+  position: absolute;
+}
+.navbar .navlink {
+  padding: 10px 20px;
+  font-size: 24px;
+}
+.navbar .navlink:hover {
+  background-color: var(--s);
+  color: var(--p);
+  border-radius: 5px;
+}
+.navbar .navlink span {
+  font-size: 16px;
+}
+@media (min-width: 700px) {
+  body {
+    background-color: red;
+  }
+  .mainPage .sideNavbar.active .navbar .navlink span {
+    display: inline-block;
+  }
+  .sideNavbar {
+    padding: 15px 10px;
+  }
+  .sideNavbar.active {
+    padding: 20px;
+  }
+  .sideNavbar .sideCon {
+    margin: 20px 5px;
+  }
+  .mainPage .sideNavbar {
+    width: 65px;
+    text-align: center;
+  }
+  .mainPage .sideNavbar.active {
+    width: 250px;
+    text-align: left;
+  }
+  .mainPage .sideNavbar.active .logoSec {
+    display: inline-block;
+  }
+  .mainPage .sideNavbar.active .sideCon {
+    display: inline-block;
+    margin: 0;
+    right: 20px;
+    position: absolute;
+    margin-top: 10px;
+  }
+  .logoSec .sideCon .mobOp,
+  .logoSec .sideCon .mobClo {
+    display: none;
+  }
+  .mainPage .sideNavbar .navbar .navlink {
+    padding: 10px;
+  }
+  .mainPage .sideNavbar.active .navbar .navlink:hover {
+    background-color: var(--s);
+    padding: 10px 20px;
+    left: 70px;
+    color: var(--p);
+  }
+  .mainPage .sideNavbar.active .navbar .navlink:hover span {
+    padding: 10px 0;
+  }
+  .mainPage .sideNavbar .navbar .navlink:hover span {
+    display: block;
+    background-color: var(--s);
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: fixed;
+    left: 90px;
+    color: var(--p);
+    margin-top: -32px;
+    /* background-color: rgb(0, 255, 85); */
+  }
+  .navbar .navlink span {
+    font-size: 16px;
+    padding-left: 10px;
+    display: none;
+  }
+  .mainPage .sideNavbar.active .navbar .navBott .navlink {
+    width: 210px;
+  }
+  .navbar .navBott .navlink {
+    width: 45px;
+  }
+}
+@media (max-width: 700px) {
+  .sideNavbar {
+    padding: 10px;
+  }
+  .sideNavbar.mobActive {
+    height: auto;
+  }
+  .sideNavbar.mobActive .mob .mobOp {
+    display: block;
+  }
+  .sideNavbar.mobActive .mob .mobClo,
+  .sideNavbar .mob .mobOp {
+    display: none;
+  }
+  .sideNavbar {
+    height: 100%;
+  }
+  .sideCon {
+    right: 10px;
+    position: absolute;
+    margin-top: -38px;
+  }
+  .sideCon .des {
+    display: none;
+  }
+  .sideNavbar.mobActive .navbar {
+    display: none;
+  }
+  .sideNavbar .navlink,
+  .sideNavbar .navlink:hover {
+    width: 100%;
+  }
+  .navBott {
+    width: calc(100% - 40px);
+  }
+}

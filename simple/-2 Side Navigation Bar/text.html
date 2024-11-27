@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: red;
+        padding: 40px;
+        margin: 20px;
+        position: relative;
+      }
+      .box span {
+        display: none;
+        background-color: blue;
+        position: absolute;
+        right: -100px;
+      }
+      .box:hover span {
+        display: block;
+      }
+    </style>
+    <div>
+      <!-- on hover side box display -->
+      <div class="box">
+        <h1>1</h1>
+        <span>this is side 1</span>
+      </div>
+      <div class="box">
+        <h1>ok2</h1>
+        <span>this is side ok2</span>
+      </div>
+      <div class="box">
+        <h1>3</h1>
+        <span>this is side 3</span>
+      </div>
+    </div>
+  </body>
+</html>
