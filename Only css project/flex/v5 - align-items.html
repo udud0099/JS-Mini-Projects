@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: #eee;
+        width: 600px;
+        margin: 50px auto 0;
+        padding: 10px;
+        border: 3px solid #000;
+        height: 400px;
+      }
+      .item1 {
+        background-color: orange;
+        height: 100px;
+        font-size: 44px;
+      }
+      .item2 {
+        background-color: yellowgreen;
+        height: 70px;
+        font-size: 22px;
+      }
+      .item3 {
+        background-color: mediumpurple;
+      }
+      .item4 {
+        background-color: hotpink;
+        height: 120px;
+        font-size: 7px;
+      }
+      .items {
+        color: #fff;
+        /* font-size: 20px; */
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+      }
+      .container1 {
+        display: flex;
+        align-items: stretch;
+      }
+      .container2 {
+        display: flex;
+        align-items: flex-start;
+      }
+      .container3 {
+        display: flex;
+        align-items: flex-end;
+      }
+      .container4 {
+        display: flex;
+        align-items: center;
+      }
+      .container5 {
+        display: flex;
+        align-items: baseline;
+      }
+    </style>
+    <br />
+    <h1>
+      align-items can apply on only parent div. it controll all child elelement.
+      it have 45 propoty. stretch (Default), flex-start, flex-end, center,
+      baseline. it control the Vertical Alignment
+    </h1>
+    <br />
+    <h2>stretch</h2>
+    <p>if child have height it give height. other wise flow parrent height</p>
+    <div class="container container1">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+    <br />
+    <h2>flex-start</h2>
+    <p>
+      it stiky on top. if child have height it give height. other wise it take
+      auto height
+    </p>
+    <div class="container container2">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+    <br />
+    <h2>flex-end</h2>
+    <p>
+      it stiky on bottom. if child have height it give height. other wise it
+      take auto height
+    </p>
+    <div class="container container3">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+    <br />
+    <h2>center</h2>
+    <p>if child have height it give height. other wise it take auto height</p>
+    <div class="container container4">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+    <br />
+    <h2>baseline</h2>
+    <p>
+      it flow the font base line. if child have height it give height. other
+      wise it take auto height
+    </p>
+    <div class="container container5">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+
+    <h1>
+      Align-items control Vertican alignment and justify-content control
+      Horizontal Alignment. and Flex-derection have row and column we can mix
+      them and make cool alignment.
+    </h1>
+    <p>
+      it is just like graphic design align - left center right and top middle
+      bottom. that why we have 9 alignment. we can mix flex-derection row and
+      column make more use full
+    </p>
+  </body>
+</html>

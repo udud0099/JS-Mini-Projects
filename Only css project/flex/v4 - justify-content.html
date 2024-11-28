@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: #eee;
+        width: 400px;
+        margin: 50px auto 0;
+        /* padding: 10px; */
+        border: 3px solid #000;
+      }
+      .container .item1 {
+        background-color: orange;
+      }
+      .container .item2 {
+        background-color: yellowgreen;
+      }
+      .container .item3 {
+        background-color: mediumpurple;
+      }
+      .container .item4 {
+        background-color: hotpink;
+      }
+      .container .items {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 0px;
+      }
+      .container1 {
+        display: flex;
+        justify-content: space-around;
+      }
+      .container2 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .container3 {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    </style>
+    <h1>
+      justify-content have 6 propoties. flex-start, center, flex-end,
+      space-around, space-between, space-evenly
+    </h1>
+    <p>
+      flex-start, center, flex-end just like a text align left, center, right
+    </p>
+    <br />
+
+    <h1>space-around</h1>
+    <p>
+      it give a each child element have both side eaple margin. just like each
+      child have 10px margin both side.
+    </p>
+    <br />
+    <div class="container container1">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+
+    <br />
+    <h1>space-between</h1>
+    <p>
+      it take first child left aliment and last child have right aligment.
+      restof them have equly distribute.
+    </p>
+    <br />
+    <div class="container container2">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+    <br />
+    <h1>space-evenly</h1>
+    <p>
+      it give each child have eaqle gap. it don't have first child lest
+      aligment. each child have eaqle gap. including start and end
+    </p>
+    <br />
+    <div class="container container3">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+  </body>
+</html>

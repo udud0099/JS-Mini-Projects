@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: #eee;
+        /* width: 600px; */
+        margin: 50px auto 0;
+        padding: 10px;
+        border: 3px solid #000;
+        display: flex;
+      }
+      .items {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+      }
+      .item1 {
+        background-color: orange;
+        flex-basis: 200px;
+      }
+      .item2 {
+        background-color: yellowgreen;
+        flex-shrink: 3;
+      }
+      .item3 {
+        background-color: mediumpurple;
+      }
+      .item4 {
+        background-color: hotpink;
+      }
+    </style>
+    <h1>
+      flex-basis - just like max width. bsis have auto default value flex-shrink
+      just like min width. shrink have 1 is default value
+    </h1>
+    <p>flex: flex-grow flex-shrink flex-basis</p>
+    <br />
+    <div class="container">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+  </body>
+</html>

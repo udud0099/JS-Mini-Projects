@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: #eee;
+        width: 600px;
+        margin: 50px auto 0;
+        padding: 10px;
+        border: 3px solid #000;
+        display: flex;
+      }
+      .item1 {
+        background-color: orange;
+      }
+      .item2 {
+        order: -2;
+        background-color: yellowgreen;
+      }
+      .item3 {
+        background-color: mediumpurple;
+        order: 5;
+      }
+      .item4 {
+        background-color: hotpink;
+      }
+      .items {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+    <h1>
+      order - it is for child. it change order of child. by default it have 0.
+      it gose low to high point. just like -2 0 5
+    </h1>
+    <br />
+    <div class="container">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+  </body>
+</html>

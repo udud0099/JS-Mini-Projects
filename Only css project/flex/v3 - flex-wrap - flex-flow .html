@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .container {
+        background-color: #eee;
+        width: 400px;
+        margin: 50px auto 0;
+        padding: 10px;
+        border: 3px solid #000;
+        display: flex;
+
+        /* flex-direction: row;
+        flex-wrap: wrap; */
+
+        flex-flow: row wrap;
+      }
+      .item1 {
+        background-color: orange;
+      }
+      .item2 {
+        background-color: yellowgreen;
+      }
+      .item3 {
+        background-color: mediumpurple;
+      }
+      .item4 {
+        background-color: hotpink;
+      }
+      .items {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+    <h1>
+      Flex-wrap is a way that control the data. it prevent the data overflow. it
+      have nowrap, wrap, wrap-reverse
+    </h1>
+    <p>
+      it is just like overflow : scrool. but it is not give us scrool it just
+      wrap a content.
+    </p>
+    <h2>
+      flex-flow: row wrap; - it is a short hand of the flex-direction &
+      flex-wrap.
+    </h2>
+    <br />
+    <div class="container">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+      <div class="items item1">5One</div>
+      <div class="items item2">6Two</div>
+      <div class="items item3">7Three</div>
+      <div class="items item4">8Four</div>
+    </div>
+  </body>
+</html>
