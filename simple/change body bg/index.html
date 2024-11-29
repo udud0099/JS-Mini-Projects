@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        /* flex-direction: column;
+        flex-wrap: wrap;
+        align-self: center; */
+        /* align-content: center; */
+      }
+      .main button {
+        padding: 0.8rem 1.8rem;
+        background-color: rgb(80, 1, 1);
+        border: 2px solid wheat;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+      }
+    </style>
+    <div class="main">
+      <button id="fewcolor" onclick="fewcolor()">Few color</button>
+      <button id="color" onclick="color()">infinite color</button>
+    </div>
+
+    <script>
+      const somecolor = [
+        "red",
+        "blue",
+        "black",
+        "yellow",
+        "green",
+        "pink",
+        "darkred",
+        "darkpink",
+      ];
+      const fewcolorBox = document.querySelector("#fewcolor");
+      const colorBox = document.querySelector("#color");
+      function fewcolor() {
+        let any = Math.floor(Math.random() * somecolor.length + 1) - 1;
+        fewcolorBox.innerHTML = somecolor[any];
+        document.querySelector("body").style.backgroundColor = somecolor[any];
+        colorBox.innerHTML = "infinite color";
+
+        console.log(any);
+      }
+      function color() {
+        const colorOPt = "0123456789abcdef";
+        let random = "#";
+        for (let i = 0; i < 6; i++) {
+          let any = Math.floor(Math.random() * colorOPt.length + 1) - 1;
+
+          random += colorOPt[any];
+        }
+        colorBox.innerHTML = random;
+
+        document.querySelector("body").style.backgroundColor = random;
+        fewcolorBox.innerHTML = "Few color";
+
+        console.log(random);
+      }
+    </script>
+  </body>
+</html>
