@@ -19,9 +19,9 @@
         justify-content: center;
         align-items: center;
         gap: 50px;
-        /* flex-direction: column;
+        flex-direction: column;
         flex-wrap: wrap;
-        align-self: center; */
+        align-self: center;
         /* align-content: center; */
       }
       .main button {
@@ -32,8 +32,32 @@
         cursor: pointer;
         color: white;
       }
+      h1 {
+        animation: changecolor 5s infinite alternate;
+      }
+      @keyframes changecolor {
+        0% {
+          color: red;
+        }
+        20% {
+          color: rgb(25, 0, 255);
+        }
+        40% {
+          color: rgb(255, 196, 0);
+        }
+        60% {
+          color: rgb(30, 255, 0);
+        }
+        80% {
+          color: rgb(255, 0, 255);
+        }
+        100% {
+          color: rgb(0, 0, 0);
+        }
+      }
     </style>
     <div class="main">
+      <h1>This is added changing gredent color.</h1>
       <button id="fewcolor" onclick="fewcolor()">Few color</button>
       <button id="color" onclick="color()">infinite color</button>
     </div>
@@ -56,8 +80,6 @@
         fewcolorBox.innerHTML = somecolor[any];
         document.querySelector("body").style.backgroundColor = somecolor[any];
         colorBox.innerHTML = "infinite color";
-
-        console.log(any);
       }
       function color() {
         const colorOPt = "0123456789abcdef";
