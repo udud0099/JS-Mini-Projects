@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .imgBox img {
+        text-align: center;
+        transition: 3s ease-in-out;
+      }
+      .imgBox img:hover {
+        /* transform: scale(); */
+        /* transform: translate(); */
+        /* transform: rotate(); */
+        transform: rotate(75deg) scale(2) translate(200px);
+      }
+    </style>
+    <div class="imgBox">
+      <img src="aa.jpg" width="200px" alt="" />
+    </div>
+  </body>
+</html>

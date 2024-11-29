@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .img1 {
+        position: absolute;
+        left: 0;
+        animation-name: text;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-direction: reverse;
+        /* animation-iteration-count: 3; */
+        animation-timing-function: ease-in-out;
+        /* animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+      }
+      .img2 {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        animation: text 3s both infinite ease-in-out, jump 0.3s both 1.2s ease;
+      }
+      @keyframes text {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(800px);
+        }
+      }
+      @keyframes jump {
+        0% {
+          top: 20px;
+        }
+        50% {
+          top: -120px;
+        }
+        100% {
+          top: 20px;
+        }
+      }
+    </style>
+    <div class="main">
+      <img class="img1" src="aa.png" width="100px" alt="" />
+      <br />
+      <br />
+      <br />
+      <img class="img2" src="aa.jpg" width="30px" alt="" />
+    </div>
+  </body>
+</html>
