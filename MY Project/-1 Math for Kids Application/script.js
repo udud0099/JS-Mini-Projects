@@ -99,3 +99,4 @@ function checkWrongAns(Wopt2, Wopt3, Wopt4) {
     document.getElementById("opt4").innerHTML = Wopt4;
   }
 }
+setQue();
