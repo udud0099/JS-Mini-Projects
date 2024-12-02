@@ -74,3 +74,12 @@ body {
   font-size: 28px;
   margin-top: -6px;
 }
+.weather {
+  display: none;
+}
+.error {
+  text-align: left;
+  margin: 10px;
+  font-size: 14px;
+  display: none;
+}
