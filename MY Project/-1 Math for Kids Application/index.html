@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">
+          Math Test for
+          <h1>
+            <select name="" id="age">
+              <option selected value="1">3-4</option>
+              <option value="2">5-7</option>
+              <option value="3">7-9</option>
+              <option value="4">9-12</option>
+            </select>
+          </h1>
+          Kids
+        </div>
+        <div class="navbar">
+          <ul>
+            <li id="add" onclick="selectoprator(1)">Add</li>
+            <li id="sub" onclick="selectoprator(2)">Subtract</li>
+            <li id="mul" onclick="selectoprator(3)">Multiply</li>
+            <li id="div" onclick="selectoprator(4)">Divide</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mainbody">
+        <div class="question">
+          <div class="questionBox">
+            <h1 id="que">10 - 10 = ?</h1>
+          </div>
+          <div class="score">
+            <span>Total Score</span>
+          </div>
+        </div>
+        <div
+          class="option"
+          style="display: flex; flex-direction: column; gap: 5px"
+        >
+          <h1 id="opt1" style="order: 2" onclick="opt(1)">w</h1>
+          <h1 id="opt2" style="order: 3" onclick="opt(2)">o3</h1>
+          <h1 id="opt3" onclick="opt(3)">o1</h1>
+          <h1 id="opt4" onclick="opt(4)">o2</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

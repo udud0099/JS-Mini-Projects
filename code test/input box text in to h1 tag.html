@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="text" type="text" />
+    <button onclick="send()">ok</button>
+    <h1 id="change">change</h1>
+
+    <script>
+      let text = document.getElementById("text");
+      let change = document.getElementById("change");
+      function send() {
+        change.innerHTML = text.value;
+        text.value = "";
+      }
+    </script>
+  </body>
+</html>

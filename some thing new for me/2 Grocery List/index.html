@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .active {
+        color: red;
+        font-size: 30px;
+      }
+    </style>
+    <div class="main">
+      <div class="head">
+        <h1>Type Shoping List</h1>
+        <div class="inputbox">
+          <span id="deleteAll">%</span> <input type="text" id="input" />
+        </div>
+      </div>
+      <div class="content">
+        <ul id="list"></ul>
+      </div>
+    </div>
+    <script>
+      const deleteAll = document.getElementById("deleteAll");
+      const input = document.getElementById("input");
+      const list = document.getElementById("list");
+      let allList = document.querySelectorAll("li");
+      deleteAll.addEventListener("click", () => {
+        list.innerHTML = "";
+      });
+      input.addEventListener("keydown", (event) => {
+        if (input.value !== "" && event.key == "Enter") {
+          addData();
+        }
+      });
+      function addData() {
+        list.innerHTML = list.innerHTML + `<li>${input.value}</li>`;
+        input.value = "";
+        allList = document.querySelectorAll("li");
+        addStyle();
+      }
+      function addStyle() {
+        for (let i = 0; i < allList.length; i++) {
+          allList[i].addEventListener("click", () => {
+            allList[i].classList.toggle("active");
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

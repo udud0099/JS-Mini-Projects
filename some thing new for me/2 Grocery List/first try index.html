@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+    <div class="main">
+      <div class="head">
+        <h1>Grocery List</h1>
+        <button id="delete">delete all</button><input type="text" id="input" />
+      </div>
+      <div class="list">
+        <ul>
+          <div class="listAdd" id="listAdd"></div>
+        </ul>
+      </div>
+    </div>
+    <script>
+      let item = document.querySelectorAll(".liItem");
+
+      let li = document.getElementById("input");
+      let old = document.getElementById("listAdd");
+      let deleteAll = document.getElementById("delete");
+      deleteAll.addEventListener("click", () => {
+        old.innerHTML = "";
+      });
+      li.addEventListener("keydown", function myFun(event) {
+        if (li.value && event.key == "Enter") additem();
+      });
+      function additem() {
+        old.innerHTML = old.innerHTML + `<li class="liItem">${li.value}</li>`;
+
+        li.value = "";
+        item = document.querySelectorAll("li");
+        console.log(item);
+        changestyle();
+      }
+      function changestyle() {
+        for (let i = 0; i < item.length; i++) {
+          // item = document.querySelectorAll("li");
+          item[i].addEventListener("click", function myFun() {
+            console.log(Math.random(), item);
+
+            item[i].classList.toggle("active");
+          });
+        }
+      }
+    </script>
+    <!-- https://www.youtube.com/watch?v=hIjAGcMh3QA&list=PLtMugc7g4GaqAVDZwQ_t1H6500ZGJzOgW&index=1 -->
+  </body>
+</html>
