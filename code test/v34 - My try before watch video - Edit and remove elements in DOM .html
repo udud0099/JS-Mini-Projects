@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="inputbox">
+      <input type="text" id="input" />
+      <h1>Our class</h1>
+    </div>
+    <ul id="box">
+      <li>Javascript</li>
+    </ul>
+    <script>
+      //  it make only div tag in memory. we can take any var name (div this is not need)
+      // div.className = "main";
+      // this way is not bad. but it replace old data (class name)
+      // div.id = "anyId"
+      // div.id = Math.round(Math.random() * 10 + 1);
+      // div.setAttribute("title", "title from js");
+      // div.style.backgroundColor = "red";
+      // this is inline css
+      // div.style.padding = "12px";
+      // div.innerText = "Chai aur code";
+      // again replace problem
+      const addLi = document.getElementById("input");
+      addLi.addEventListener("keydown", (e) => {
+        if ((addLi.value !== "") & (e.key == "Enter")) {
+          addLiOnPage();
+        }
+      });
+      function addLiOnPage() {
+        const main = document.createElement("li");
+
+        const addText = document.createTextNode(addLi.value);
+        main.appendChild(addText);
+
+        document.getElementById("box").appendChild(main);
+
+        addLi.value = "";
+      }
+    </script>
+  </body>
+</html>
