@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events in Javascript | chai aur #javascript</title>
+  </head>
+  <body>
+    <style>
+      li {
+        padding: 20px;
+        background-color: black;
+        color: white;
+        margin: 20px 0;
+        cursor: pointer;
+      }
+    </style>
+    <div id="top">
+      <ul id="ultag">
+        <li><a id="atag" href="#">(ok)</a></li>
+        <li><a id="atag" href="#">(ok2)</a></li>
+        <li><a id="atag" href="#">(ok3)</a></li>
+        <li><a id="atag" href="#">(ok4)</a></li>
+        <li><a id="atag" href="#">(ok5)</a></li>
+        <li><a id="atag" href="#">(ok6)</a></li>
+        <li><a id="atag" href="#">(ok7)</a></li>
+        <li><a id="atag" href="#">(okew)</a></li>
+        <li><a id="atag" href="#">( okq) </a></li>
+        <li><a id="atag" href="#">(ok12)</a></li>
+        <li><a id="atag" href="#">(ok21)</a></li>
+        <li><a id="atag" href="#">(ok33)</a></li>
+        <li><span>thia is google tag</span></li>
+      </ul>
+    </div>
+    <script>
+      const allLi = document.querySelector("#ultag");
+      // allLi.addEventListener
+
+      document.querySelector("#ultag").addEventListener("click", function (e) {
+        console.log(e.target, "ok");
+        allLi.remove();
+      });
+    </script>
+  </body>
+</html>
