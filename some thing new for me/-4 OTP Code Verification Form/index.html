@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Code Verification Form</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #4070f4;
+    }
+    :where(.container, form, .input-field, header) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px 65px;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      row-gap: 20px;
+    }
+    .container header {
+      height: 65px;
+      width: 65px;
+      background-color: #4070f4;
+      font-size: 2.5rem;
+      border-radius: 50%;
+    }
+    .container header .bx {
+      color: white;
+    }
+    .container h4 {
+      font-size: 1.25rem;
+      color: #333;
+      font-weight: 500;
+    }
+    form .input-field {
+      flex-direction: row;
+      gap: 20px;
+    }
+    .input-field input {
+      height: 45px;
+      width: 42px;
+      border-radius: 6px;
+      outline: none;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .input-field input::-webkit-inner-spin-button,
+    .input-field input::-webkit-outer-spin-button {
+      display: none;
+    }
+    form button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #6e93f7;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      padding: 9px 0;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      pointer-events: none;
+    }
+    form button.active {
+      pointer-events: auto;
+      background-color: #4070f4;
+    }
+    form button:hover {
+      background-color: #0e4bf1;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header>
+        <i class="bx bxs-check-shield"></i>
+      </header>
+      <h4>Enter OTP Code</h4>
+      <form action="#">
+        <div class="input-field">
+          <input type="number" />
+          <input type="number" disabled />
+          <input type="number" disabled />
+          <input type="number" disabled />
+        </div>
+        <button>Verify OTP</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const inputs = document.querySelectorAll("input");
+    const button = document.querySelector("button");
+
+    inputs.forEach((input, index1) => {
+      input.addEventListener("keyup", (e) => {
+        const currentInput = input;
+        const nextInput = input.nextElementSibling;
+        const prevInput = input.previousElementSibling;
+
+        if (currentInput.value.length > 1) {
+          currentInput.value = "";
+          return;
+        }
+        if (
+          nextInput &&
+          nextInput.hasAttribute("disabled") &&
+          currentInput.value !== ""
+        ) {
+          nextInput.removeAttribute("disabled");
+          nextInput.focus();
+        }
+
+        if (e.key === "Backspace") {
+          inputs.forEach((input, index2) => {
+            if (index1 <= index2 && prevInput) {
+              input.setAttribute("disabled", true);
+              currentInput.value = "";
+              prevInput.focus();
+            }
+          });
+        }
+        if (!inputs[0].disabled && inputs[3].value !== "") {
+          button.classList.add("active");
+          return;
+        }
+        button.classList.remove("active");
+      });
+    });
+    window.addEventListener("load", () => inputs[0].focus());
+  </script>
+  <!-- https://www.youtube.com/watch?v=naVaJDYpptY&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=10 -->
+</html>
