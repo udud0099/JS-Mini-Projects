@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f6f7fb;
+      }
+      .container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 420px;
+        justify-content: center;
+      }
+      .container .box {
+        position: relative;
+        height: 160px;
+        width: 160px;
+        border-radius: 12px;
+        border: 2px solid #333;
+      }
+      .box .image {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        background-image: url("aa.jpg");
+      }
+      .box.hovered {
+        border: 2px dashed #333;
+      }
+    </style>
+    <section class="container">
+      <div class="box">
+        <div class="image" draggable="true"></div>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </section>
+    <script>
+      const boxes = document.querySelectorAll(".box");
+      const image = document.querySelector(".image");
+
+      // when a draggable element dragged over a box element
+      boxes.forEach((box) => {
+        box.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          box.classList.add("hovered");
+        });
+
+        //when a araggable element leaves box element
+        box.addEventListener("dragleave", () => {
+          box.classList.remove("hovered");
+        });
+
+        // when a draggable element is dropped on a box elemen
+        box.addEventListener("drop", () => {
+          box.appendChild(image);
+          box.classList.remove("hovered");
+        });
+      });
+    </script>
+  </body>
+</html>
