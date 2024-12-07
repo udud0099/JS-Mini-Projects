@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Button with Timer</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        --p: #0f72db;
+        --s: #0e61b9;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        background-color: var(--p);
+        padding: 10px 25px;
+        font-size: 1.3rem;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: var(--s);
+      }
+      p span {
+        color: var(--p);
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+      .timmer,
+      .downloading,
+      .downloadAgain {
+        display: none;
+      }
+    </style>
+    <div class="main">
+      <div class="contentBox">
+        <button class="downloadFile">Download Files</button>
+        <p class="timmer">Your file will download in <span>5</span> Seconds</p>
+        <p class="downloading">Your file is downloading...</p>
+        <button class="downloadAgain">Download Again</button>
+      </div>
+    </div>
+    <script>
+      const downloadFile = document.querySelector(".downloadFile");
+      const timmer = document.querySelector(".timmer");
+      const downloading = document.querySelector(".downloading");
+      const downloadAgain = document.querySelector(".downloadAgain");
+      downloadFile.addEventListener("click", () => {
+        downloadFile.style.display = "none";
+        timmer.style.display = "block";
+        let timmerStart = setInterval(coundown, 1000);
+        let i = 5;
+        function coundown() {
+          timmer.innerHTML = `Your file will download in <span>${i}</span> Seconds`;
+          if (i === 0) {
+            stopcoundown();
+          }
+          i--;
+        }
+        function stopcoundown() {
+          timmer.style.display = "none";
+          downloading.style.display = "block";
+          clearInterval(timmerStart);
+        }
+        let downloadingStart = setInterval(downloadingFile, 6500);
+        function downloadingFile() {
+          // downloading.style.display = "none";
+          stopdownloadingFile();
+        }
+        function stopdownloadingFile() {
+          downloading.style.display = "none";
+          downloadAgain.style.display = "block";
+          downloadFileOnPc();
+          clearInterval(downloadingStart);
+        }
+      });
+      downloadAgain.addEventListener("click", downloadFileOnPc);
+      function downloadFileOnPc() {
+        // Create an anchor element
+        const a = document.createElement("a");
+
+        // Set the file URL (can be a local path or remote URL)
+        a.href = "file.txt"; // Replace with your file path
+
+        // Set the download attribute to suggest a filename
+        a.download = "example.txt"; // Replace with the desired file name
+
+        // Append the anchor to the body
+        document.body.appendChild(a);
+
+        // Trigger the click event
+        a.click();
+
+        // Remove the anchor from the DOM
+        document.body.removeChild(a);
+      }
+    </script>
+    <!--      
+      // JavaScript to trigger the file download
+      document.getElementById("downloadBtn").addEventListener("click", () => {
+        // Create an anchor element
+        const a = document.createElement("a");
+
+        // Set the file URL (can be a local path or remote URL)
+        a.href = "file.txt"; // Replace with your file path
+
+        // Set the download attribute to suggest a filename
+        a.download = "example.txt"; // Replace with the desired file name
+
+        // Append the anchor to the body
+        document.body.appendChild(a);
+
+        // Trigger the click event
+        a.click();
+
+        // Remove the anchor from the DOM
+        document.body.removeChild(a);
+      });
+      -->
+  </body>
+  <!-- https://www.youtube.com/watch?v=psWT3P80S0k&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=11 -->
+</html>
