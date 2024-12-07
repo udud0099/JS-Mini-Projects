@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome Free 6.x -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <title>Create Star Rating</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(255, 217, 111);
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .starBox {
+        width: 500px;
+        height: 300px;
+        border-radius: 50px;
+        background-color: white;
+        color: rgb(185, 185, 185);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .star {
+        font-size: 3rem;
+        margin: 20px 0;
+      }
+      .star .active {
+        color: rgb(255, 217, 111);
+      }
+      .star span {
+        padding: 0 10px;
+        cursor: pointer;
+      }
+    </style>
+    <div class="main">
+      <div class="starBox">
+        <h1>How Was your Experience ?</h1>
+        <div class="star">
+          <span><i class="fa-solid fa-star"></i></span><span><i class="fa-solid fa-star"></i></span><span><i class="fa-solid fa-star"></i></span><span><i class="fa-solid fa-star"></i></span><span><i class="fa-solid fa-star"></i></span>
+        </div>
+        <p>Total start is <h3 id="totlaStart">0</h3></p>
+      </div>
+    </div>
+    <script>
+      let item = document.querySelectorAll("span");
+
+      for (let i = 0; i < item.length; i++) {
+        // item[i].classList.remove("active");
+        // console.log(i);
+
+        item[i].addEventListener("click", function myFun() {
+          // item[i].classList.add("active");
+          for (let j = 0; j < 5; j++) {
+            if (j <= i) {
+              item[j].classList.add("active");
+            } else {
+              item[j].classList.remove("active");
+            }
+          }
+          document.getElementById("totlaStart").innerHTML =  i+1 ;
+          console.log("click" + i);
+        });
+      }
+    </script>
+  </body>
+  <!-- https://www.youtube.com/watch?v=q1xhbc-oKnc&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=9 -->
+</html>
