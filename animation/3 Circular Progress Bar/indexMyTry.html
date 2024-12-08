@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Progress Bar</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --p: rgb(117, 0, 121);
+        --g: rgb(231, 231, 231);
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: var(--p);
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 500px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: white;
+      }
+      .circularBox {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--g);
+      }
+      .circularBoxGre {
+        width: 400px;
+        border-radius: 50%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: red; */
+        background: conic-gradient(var(--p) 30deg, var(--g) 0deg);
+      }
+      .perBox {
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        background-color: rgb(255, 255, 255);
+        color: var(--p);
+        font-weight: 700;
+      }
+      .box h1 {
+        font-size: 2rem;
+        color: rgb(105, 105, 105);
+      }
+    </style>
+    <div class="main">
+      <div class="box">
+        <div class="circularBox">
+          <div class="circularBoxGre">
+            <div class="perBox">
+              <span>24%</span>
+            </div>
+          </div>
+        </div>
+        <h1>HTML & CSS</h1>
+      </div>
+    </div>
+  </body>
+  <!-- background: conic-gradient(red 30deg, white 0deg); -->
+  <!-- https://www.youtube.com/watch?v=SKU2gExpkPI&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=37 -->
+</html>
