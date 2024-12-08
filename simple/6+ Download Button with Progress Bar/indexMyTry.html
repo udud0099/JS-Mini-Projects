@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Download Button with Progress Bar</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --p: rgb(0, 203, 218);
+        --s: rgb(2, 178, 190);
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+      }
+      .box {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .box button {
+        font-size: 3rem;
+        padding: 15px 40px;
+        background-color: var(--p);
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+      .box .dow:hover,
+      .box .com:hover {
+        background-color: var(--s);
+      }
+      .box .com {
+        display: none;
+      }
+      .box .ani {
+        width: 600px;
+        border-radius: 100px;
+        position: relative;
+        text-align: left;
+        overflow: hidden;
+        display: none;
+      }
+      .box .ani::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--s);
+        border-radius: 100px;
+        left: -100%;
+        top: 0;
+        animation: showHide 4s steps(120) infinite;
+      }
+      .box .ani i,
+      .box .ani span {
+        display: none;
+      }
+      @keyframes showHide {
+        0% {
+          left: -100;
+        }
+        100% {
+          left: 0;
+        }
+      }
+    </style>
+    <div class="main">
+      <div class="box">
+        <button id="download" class="dow">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+          <span>Download</span>
+
+          <!-- <i class=""></i> -->
+        </button>
+        <button class="ani"></button>
+        <button class="com">
+          <i class="fa-regular fa-circle-check"></i>
+          <span>Completed</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      const download = document.getElementById("download");
+      download.addEventListener("click", () => {
+        document.querySelector(".ani").style.display = "block";
+        document.querySelector(".dow").style.display = "none";
+
+        setTimeout(() => {
+          document.querySelector(".ani").style.display = "none";
+
+          document.querySelector(".com").style.display = "block";
+        }, 4000);
+      });
+    </script>
+  </body>
+  <!-- https://www.youtube.com/watch?v=N0ZGC7COC7s&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=33 -->
+</html>
