@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Typing Text Animation</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(21, 0, 70);
+        text-align: center;
+      }
+      .main {
+        color: white;
+      }
+      .box {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box span {
+        color: rgb(6, 163, 253);
+        position: relative;
+      }
+      .box span::before {
+        content: "";
+        background-color: rgb(21, 0, 70);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-left: 1px solid rgb(6, 163, 253);
+        animation: showHide 4s steps(12) infinite;
+      }
+      @keyframes showHide {
+        40%,
+        60% {
+          left: 100%;
+        }
+        0%,
+        100% {
+          left: 0;
+        }
+      }
+    </style>
+    <div class="main">
+      <div class="box">
+        <h1>I'M a <span id="changeText">Freelancer</span></h1>
+      </div>
+    </div>
+    <script>
+      const changeText = document.getElementById("changeText");
+      const text = [
+        "FrontEnd Develper",
+        "Graphic Designer",
+        "Youtuber",
+        "Coder",
+        "UI/UX Designer",
+        "Freelancer",
+      ];
+      let i = 0;
+      setInterval(() => {
+        changeText.innerHTML = text[i];
+        i++;
+        if (i === text.length) {
+          i = 0;
+        }
+      }, 4000);
+    </script>
+  </body>
+  <!-- https://www.youtube.com/watch?v=nxoHR9lltK0&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=22 -->
+</html>
