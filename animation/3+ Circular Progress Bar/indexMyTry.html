@@ -54,16 +54,16 @@
         justify-content: center;
         align-items: center;
         /* background-color: red; */
-        background: conic-gradient(var(--p) 30deg, var(--g) 0deg);
+        background: conic-gradient(var(--p) 0deg, var(--g) 0deg);
       }
       .perBox {
-        width: 360px;
-        height: 360px;
+        width: 350px;
+        height: 350px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 5rem;
+        font-size: 6rem;
         background-color: rgb(255, 255, 255);
         color: var(--p);
         font-weight: 700;
@@ -77,8 +77,8 @@
       <div class="box">
         <div class="circularBox">
           <div class="circularBoxGre">
-            <div class="perBox">
-              <span>24%</span>
+            <div class="perBox" style="padding-top: 20px">
+              <span id="perc" data-perc="93">0</span><span>%</span>
             </div>
           </div>
         </div>
@@ -86,6 +86,32 @@
       </div>
     </div>
   </body>
+
+  <script>
+    window.addEventListener("load", () => {
+      let valueDisplays = document.getElementById("perc");
+      let box = document.querySelector(".circularBoxGre");
+      let interval = 2500;
+      console.log("load");
+
+      let startValue = 0;
+      let endValue = parseInt(valueDisplays.getAttribute("data-perc"));
+      console.log(endValue);
+
+      let duration = Math.floor(interval / endValue);
+      let counter = setInterval(() => {
+        startValue += 1;
+        degg = startValue * 3.6;
+        console.log(startValue, degg);
+
+        valueDisplays.textContent = startValue;
+        box.style.background = `conic-gradient(rgb(117, 0, 121) ${degg}deg, rgb(231, 231, 231) 0deg)`;
+        if (startValue == endValue) {
+          clearInterval(counter);
+        }
+      }, duration);
+    });
+  </script>
   <!-- background: conic-gradient(red 30deg, white 0deg); -->
   <!-- https://www.youtube.com/watch?v=SKU2gExpkPI&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=37 -->
 </html>
