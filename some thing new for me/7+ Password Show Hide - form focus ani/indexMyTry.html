@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Password Show Hide</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--p);
+    }
+    :root {
+      --p: rgb(14, 130, 238);
+      --g: rgb(175, 175, 175);
+    }
+    .main {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 400px;
+      height: 100px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      color: var(--g);
+      padding: 30px;
+    }
+    .box .inputBox {
+      position: relative;
+    }
+    .box .inputBox input {
+      border: 2px solid var(--g);
+      font-size: 2rem;
+      border-radius: 10px;
+      padding: 10px 20px;
+      width: 100%;
+    }
+    .box .inputBox label,
+    .box .inputBox i {
+      position: absolute;
+    }
+    .box .inputBox label {
+      left: 20px;
+      font-size: 2rem;
+      top: 12px;
+      transition: all 0.2s linear;
+    }
+    .box .inputBox i {
+      right: 20px;
+      font-size: 1.5rem;
+      transition: all 0.2s linear;
+      top: 17px;
+    }
+    .inputTag:is(:focus, :valid) ~ label,
+    .inputTag:is(:focus, :valid) ~ i {
+      color: var(--p);
+    }
+    .box .inputBox input:is(:focus, :valid) {
+      border: 2px solid var(--p);
+      outline: none;
+    }
+    .inputTag:is(:focus, :valid) ~ label {
+      font-size: 0.9rem;
+      background-color: white;
+      /* padding: 3px 5px; */
+      top: -8.5px;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="box">
+        <div class="inputBox">
+          <input
+            class="inputTag"
+            id="inputTag"
+            spellcheck="false"
+            type="password"
+            required
+          />
+          <label id="passwordSide">Password</label>
+          <i id="eye" class="fa-regular fa-eye-slash"></i>
+          <!-- <label><i class="fa-regular fa-eye-slash"></i> </label> -->
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document.getElementById("passwordSide").addEventListener("click", () => {
+      document.getElementById("inputTag").focus();
+    });
+    const inputTag = document.getElementById("inputTag");
+    const eye = document.getElementById("eye");
+    eye.addEventListener("click", () => {
+      console.log("eye cli");
+
+      if (inputTag.type === "password") {
+        inputTag.type = "text";
+        eye.classList.add("fa-eye");
+        eye.classList.remove("fa-eye-slash");
+      } else {
+        inputTag.type = "password";
+        eye.classList.add("fa-eye-slash");
+        eye.classList.remove("fa-eye");
+      }
+    });
+  </script>
+
+  <!-- https://www.youtube.com/watch?v=Nnzt6_ISbOk&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=43 -->
+</html>
