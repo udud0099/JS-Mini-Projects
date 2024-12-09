@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Random Password Generator</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box">
+        <div class="inputBox">
+          <input class="inpTag" id="inpTag" type="text" />
+          <i id="copyPassword" class="fa-regular fa-clipboard"></i>
+          <!-- <i id="copyPassword" class="fa-solid fa-clipboard"></i> -->
+        </div>
+        <div class="passwordOpt">
+          <div class="passwordRange">
+            <input type="range" min="6" max="16" value="8" id="rangeChange" />
+            <label id="rangeValue">8</label>
+          </div>
+          <div class="moreOpt">
+            <div class="moreOptOne">
+              <input id="checkboxNum" type="checkbox" checked />
+              <label for="checkboxNum">Add Number</label>
+            </div>
+            <div class="moreOptOne">
+              <input id="checkboxCap" type="checkbox" />
+              <label for="checkboxCap">Add Capital</label>
+            </div>
+            <div class="moreOptOne">
+              <input id="checkboxSpe" type="checkbox" />
+              <label for="checkboxSpe">Add Spical Charator</label>
+            </div>
+          </div>
+          <div class="genPassword">
+            <button id="genPassword">Generator Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const inpTag = document.getElementById("inpTag");
+      const rangeChange = document.getElementById("rangeChange");
+      const checkboxNum = document.getElementById("checkboxNum");
+      const checkboxCap = document.getElementById("checkboxCap");
+      const checkboxSpe = document.getElementById("checkboxSpe");
+      const genPassword = document.getElementById("genPassword");
+      const copyPassword = document.getElementById("copyPassword");
+      rangeChange.addEventListener("input", () => {
+        document.getElementById("rangeValue").innerHTML = rangeChange.value;
+        genPassNew();
+      });
+      checkboxNum.addEventListener("change", () => {
+        genPassNew();
+      });
+      checkboxCap.addEventListener("change", () => {
+        genPassNew();
+      });
+      checkboxSpe.addEventListener("change", () => {
+        genPassNew();
+      });
+      genPassword.addEventListener("click", genPassNew);
+      function genPassNew() {
+        let ranPassRan = "asdfglkjhqwertyuiopzxcvbnm";
+        if (checkboxNum.checked) ranPassRan += "0123456789";
+        if (checkboxCap.checked) ranPassRan += "QWERTYUIOPASDFGHJKLZXCVBNM";
+        if (checkboxSpe.checked) ranPassRan += "`~!@#$%^&*()_+:;,<>?/-";
+        let newPass = "";
+        for (let i = 0; i < rangeChange.value; i++) {
+          newPass += ranPassRan[Math.floor(Math.random() * ranPassRan.length)];
+        }
+        inpTag.value = newPass;
+        copyPassword.classList.add("fa-regular");
+        copyPassword.classList.remove("fa-solid");
+      }
+      copyPassword.addEventListener("click", () => {
+        navigator.clipboard.writeText(inpTag.value);
+        copyPassword.classList.add("fa-solid");
+        copyPassword.classList.remove("fa-regular");
+      });
+      genPassNew();
+    </script>
+  </body>
+
+  <!-- https://www.youtube.com/watch?v=VueCBHswEps&list=PLImJ3umGjxdAuARwziklrT2QEELizOMtr&index=6 -->
+</html>
