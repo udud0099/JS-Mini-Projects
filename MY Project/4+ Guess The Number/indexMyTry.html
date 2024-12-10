@@ -228,14 +228,13 @@
       const loss = document.getElementById("loss");
       const hardMode = document.getElementById("hardMode");
       let perTryNumberList = [];
-      let chance = 1;
+      let chance = 10;
       let gameBonush = 1;
       let gameLossPoing = 10;
       let winGame = 0;
       let lossGame = 0;
       let gameScore = 0;
-      let gameNum = 22;
-      // let gameNum = Math.floor(Math.random() * 100 + 1);
+      let gameNum = Math.floor(Math.random() * 100 + 1);
       let curGameScore = 0;
       console.log(gameNum);
 
@@ -247,16 +246,20 @@
         if (hardMode.checked) {
           gameBonush = 10;
           gameLossPoing = 30;
+          chance = 5;
+          chanceLeft.innerHTML = chance;
         } else {
           gameBonush = 1;
           gameLossPoing = 10;
+          chance = 10;
+          chanceLeft.innerHTML = chance;
         }
-        // console.log(gameBonush, gameLossPoing);
-
-        againPlayNewGame();
       }
       function mainGame() {
         const userInp = playBox.value;
+        if (gameNum == playBox.value) {
+          playerWinGame();
+        }
         if (userInp == "") {
           gameMessage.innerHTML = `<h4 style="color: #f20505;">Plz Inter the Number</h4>`;
         } else if (userInp > 100 || userInp < 1) {
@@ -265,20 +268,24 @@
         } else if (perTryNumberList.includes(userInp)) {
           gameMessage.innerHTML = `<h4 style="color: #f20505;">Plz Inter New Number</h4>`;
           playBox.value = "";
-        } else {
+        } else if (gameNum != playBox.value) {
           perTryNumberList.push(userInp);
-          console.log(perTryNumberList);
+          if (userInp > gameNum) {
+            gameMessage.innerHTML = `<h4 ">Try Again - Number is high</h4>`;
+          } else if (userInp < gameNum) {
+            gameMessage.innerHTML = `<h4 ">Try Again - Number is low</h4>`;
+          }
           perTryNumber.innerHTML = perTryNumberList.join(", ");
           playBox.value = "";
           chance--;
           chanceLeft.innerHTML = chance;
         }
+        hardMode.setAttribute("disabled", "");
+
         playBox.focus();
 
         if (chance === 0) {
           playerLossGame();
-        } else if (gameNum == playBox.value) {
-          playerWinGame();
         }
       }
 
@@ -292,12 +299,15 @@
         palyButton.style.display = "none";
         newGameButton.style.display = "block";
         newGameButton.style.backgroundColor = "#f20505";
-        curGameScore = -1 * gameLossPoing;
-        finalGameScore();
+        curGameScore = gameLossPoing * -1;
+        gameScore += curGameScore;
+        score.innerHTML = gameScore;
+        curGameScore = 0;
       }
       function playerWinGame() {
         gameTitle.innerHTML = "The Number is " + gameNum;
         playBox.setAttribute("disabled", "");
+        playBox.value = "";
         playBox.placeholder = "You Win The Game";
         gameMessage.innerHTML = `<h4 style="color: #26e100;">You Win The Game</h4>`;
         winGame++;
@@ -306,7 +316,10 @@
         newGameButton.style.display = "block";
         newGameButton.style.backgroundColor = "#26e100";
         curGameScore = chance * gameBonush;
-        finalGameScore();
+        gameScore += curGameScore;
+        score.innerHTML = gameScore;
+        curGameScore = 0;
+        return;
       }
       function againPlayNewGame() {
         gameTitle.innerHTML = "Guess The Number";
@@ -315,22 +328,22 @@
         perTryNumberList = [];
         perTryNumber.innerHTML = "- - -";
         chanceLeft.innerHTML = 10;
-        chance = 1;
+        chance = 10;
         playBox.placeholder = "1 - 100 Only";
         playBox.removeAttribute("disabled", "");
         palyButton.style.display = "block";
         newGameButton.style.display = "none";
         newGameButton.style.backgroundColor = "#0b438c";
-        // gameNum = Math.floor(Math.random() * 100 + 1);
-        gameNum = 21;
+        hardMode.removeAttribute("disabled", "");
 
+        gameNum = Math.floor(Math.random() * 100 + 1);
+        console.log(gameNum);
+
+        // gameNum = 22;
+        hardGame();
         playBox.focus();
       }
-      function finalGameScore() {
-        gameScoree += curGameScore;
-        score.innerHTML = gameScoree;
-        curGameScore = 0;
-      }
+
       againPlayNewGame();
       window.addEventListener("load", () => playBox.focus());
     </script>
