@@ -86,10 +86,15 @@
       .box .head .playBox input::placeholder {
         color: rgb(230, 230, 230);
       }
-      .box .head .palyButton {
+      .box .head .palyButton,
+      .box .head .newGameButton {
         width: 100%;
       }
-      .box .head .palyButton button {
+      .box .head #newGameButton {
+        display: none;
+      }
+      .box .head .palyButton button,
+      .box .head .newGameButton button {
         font-size: 34px;
         padding: 15px 20px;
         text-align: center;
@@ -102,7 +107,8 @@
         cursor: pointer;
         transition: 0.2s linear;
       }
-      .box .head .palyButton button:hover {
+      .box .head .palyButton button:hover,
+      .box .head .newGameButton button:hover {
         font-size: 34.5px;
         font-weight: 530;
       }
@@ -172,7 +178,7 @@
     <div class="main">
       <div class="box">
         <div class="head">
-          <h1>Guess The Number</h1>
+          <h1 id="gameTitle">Guess The Number</h1>
           <div class="gameMessage" id="gameMessage">
             <h4>Let's Play Game</h4>
           </div>
@@ -181,13 +187,13 @@
           </div>
           <div class="palyButton">
             <button id="palyButton">Let's Check Number</button>
+            <button id="newGameButton">Let's Play New Game</button>
           </div>
+
           <div class="gameInfo">
             <p>
               Your Per-vise Number :-
-              <span id="perTryNumber"
-                >10, 20, 25, 35, 11, 1, 3, 21, 33, 22</span
-              >
+              <span id="perTryNumber">- - - </span>
             </p>
             <p>Your remaining Chance :- <span id="chanceLeft">10</span></p>
           </div>
@@ -198,7 +204,10 @@
           </div>
           <div class="score">
             <h2>Score :- <span id="score">0</span></h2>
-            <p>Hard Mode: <input type="checkbox" id="hardMode" /></p>
+            <p>
+              <label for="hardMode">Hard Mode:</label>
+              <input type="checkbox" id="hardMode" />
+            </p>
           </div>
           <div class="loss">
             <h2>Loss Games :- <span id="loss">0</span></h2>
@@ -207,32 +216,123 @@
       </div>
     </div>
     <script>
+      const gameTitle = document.getElementById("gameTitle");
       const gameMessage = document.getElementById("gameMessage");
       const playBox = document.getElementById("playBox");
       const palyButton = document.getElementById("palyButton");
+      const newGameButton = document.getElementById("newGameButton");
       const perTryNumber = document.getElementById("perTryNumber");
       const chanceLeft = document.getElementById("chanceLeft");
       const win = document.getElementById("win");
       const score = document.getElementById("score");
       const loss = document.getElementById("loss");
       const hardMode = document.getElementById("hardMode");
-      const perTryNumberList = [];
+      let perTryNumberList = [];
+      let chance = 1;
+      let gameBonush = 1;
+      let gameLossPoing = 10;
+      let winGame = 0;
+      let lossGame = 0;
+      let gameScore = 0;
+      let gameNum = 22;
+      // let gameNum = Math.floor(Math.random() * 100 + 1);
+      let curGameScore = 0;
+      console.log(gameNum);
 
-      palyButton.addEventListener("click", () => {
+      palyButton.addEventListener("click", mainGame);
+      hardMode.addEventListener("click", hardGame);
+      newGameButton.addEventListener("click", againPlayNewGame);
+
+      function hardGame() {
+        if (hardMode.checked) {
+          gameBonush = 10;
+          gameLossPoing = 30;
+        } else {
+          gameBonush = 1;
+          gameLossPoing = 10;
+        }
+        // console.log(gameBonush, gameLossPoing);
+
+        againPlayNewGame();
+      }
+      function mainGame() {
         const userInp = playBox.value;
         if (userInp == "") {
-          gameMessage.innerHTML = `<h4 style="color: red;">Plz Inter the Number</h4>`;
+          gameMessage.innerHTML = `<h4 style="color: #f20505;">Plz Inter the Number</h4>`;
         } else if (userInp > 100 || userInp < 1) {
-          gameMessage.innerHTML = `<h4 style="color: red;">Plz Inter 1 - 100</h4>`;
+          gameMessage.innerHTML = `<h4 style="color: #f20505;">Plz Inter 1 - 100</h4>`;
           playBox.value = "";
         } else if (perTryNumberList.includes(userInp)) {
-          gameMessage.innerHTML = `<h4 style="color: red;">Plz Inter New Number</h4>`;
+          gameMessage.innerHTML = `<h4 style="color: #f20505;">Plz Inter New Number</h4>`;
           playBox.value = "";
         } else {
           perTryNumberList.push(userInp);
           console.log(perTryNumberList);
+          perTryNumber.innerHTML = perTryNumberList.join(", ");
+          playBox.value = "";
+          chance--;
+          chanceLeft.innerHTML = chance;
         }
-      });
+        playBox.focus();
+
+        if (chance === 0) {
+          playerLossGame();
+        } else if (gameNum == playBox.value) {
+          playerWinGame();
+        }
+      }
+
+      function playerLossGame() {
+        gameTitle.innerHTML = "The Number is " + gameNum;
+        playBox.setAttribute("disabled", "");
+        playBox.placeholder = "You Loss The Game";
+        gameMessage.innerHTML = `<h4 style="color: #f20505;">You Loss The Game</h4>`;
+        lossGame++;
+        loss.innerHTML = lossGame;
+        palyButton.style.display = "none";
+        newGameButton.style.display = "block";
+        newGameButton.style.backgroundColor = "#f20505";
+        curGameScore = -1 * gameLossPoing;
+        finalGameScore();
+      }
+      function playerWinGame() {
+        gameTitle.innerHTML = "The Number is " + gameNum;
+        playBox.setAttribute("disabled", "");
+        playBox.placeholder = "You Win The Game";
+        gameMessage.innerHTML = `<h4 style="color: #26e100;">You Win The Game</h4>`;
+        winGame++;
+        win.innerHTML = winGame;
+        palyButton.style.display = "none";
+        newGameButton.style.display = "block";
+        newGameButton.style.backgroundColor = "#26e100";
+        curGameScore = chance * gameBonush;
+        finalGameScore();
+      }
+      function againPlayNewGame() {
+        gameTitle.innerHTML = "Guess The Number";
+        playBox.value = "";
+        gameMessage.innerHTML = `<h4  >Let's Play Game</h4>`;
+        perTryNumberList = [];
+        perTryNumber.innerHTML = "- - -";
+        chanceLeft.innerHTML = 10;
+        chance = 1;
+        playBox.placeholder = "1 - 100 Only";
+        playBox.removeAttribute("disabled", "");
+        palyButton.style.display = "block";
+        newGameButton.style.display = "none";
+        newGameButton.style.backgroundColor = "#0b438c";
+        // gameNum = Math.floor(Math.random() * 100 + 1);
+        gameNum = 21;
+
+        playBox.focus();
+      }
+      function finalGameScore() {
+        gameScoree += curGameScore;
+        score.innerHTML = gameScoree;
+        curGameScore = 0;
+      }
+      againPlayNewGame();
+      window.addEventListener("load", () => playBox.focus());
     </script>
   </body>
   <!-- Ui desig link -->
