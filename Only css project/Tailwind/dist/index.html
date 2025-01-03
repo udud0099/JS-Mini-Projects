@@ -6,7 +6,46 @@
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
-  <body class="bg-red-900">
-    <h1 class="text-4 m-5 ">Hi bro</h1>
+  <body class="bg-red-200">
+    <div class="grid place-content-center h-screen">
+      <h1 class="text-4 m-5">Hi bro</h1>
+      <!-- from class -->
+      <div
+        class="p-6 max-w-sm mx-auto bg-white rounded-md shadow-lg flex items-center space-x-4"
+      >
+        <div>
+          <img class="w-36" src="aa.png" alt="" />
+        </div>
+        <div>
+          <div class="text-xl font-bold text-black">
+            Tailwind CSS Tutorial
+            <p class="text-gray-800 font-normal text-sm">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum,
+              dignissimos!
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- my task -->
+      <div
+        class="mt-10 bg-white shadow-lg rounded-md p-10 max-w-md md:max-w-max md:flex md:flex-row"
+      >
+        <div>
+          <img class="w-full rounded-md md:size-full" src="aa.jpg" alt="" />
+        </div>
+        <div
+          class="pt-5 pb-5 text-center md:pl-3 md:text-left md:flex md:flex-col md:justify-center"
+        >
+          <h1 class="text-4xl font-semibold pb-3">Tailwind CSS Tutorial</h1>
+          <p class="text-lg font-normal">
+            Lorem ipsum dolor sit amet
+            <span class="py-[2px] px-[15px] bg-red-800 text-white"
+              >this is test</span
+            >
+            consectetur adipisicing elit. Ipsam illum veritatis dicta!
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
