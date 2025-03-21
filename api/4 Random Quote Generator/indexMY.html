@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+  </head>
+  <body>
+    <div>
+      <h1>Random Quote Generator</h1>
+      <p id="quote"></p>
+      <h3 id="auth"></h3>
+      <button id="generate">generate</button>
+    </div>
+
+    <script>
+      const quote = document.getElementById("quote");
+      const auth = document.getElementById("auth");
+      const generate = document.getElementById("generate");
+
+      const url = "https://api.quotable.io/random";
+
+      let quoteList = () => {
+        fetch(url)
+          .then((data) => data.json())
+          .then((item) => {
+            quote.innerHTML = item.content;
+            auth.innerHTML = item.author;
+          })
+          .catch((error) => console.error("Error fetching joke:", error));
+      };
+      window.addEventListener("load", quoteList);
+      generate.addEventListener("click", quoteList);
+      // quoteList();
+    </script>
+  </body>
+</html>
