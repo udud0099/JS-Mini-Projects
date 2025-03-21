@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Guide App</title>
+  </head>
+  <body>
+    <div>
+      <h1>Country Guide App</h1>
+      <br />
+      <br />
+      <div>
+        <input type="text" id="input" />
+        <button id="search">search</button>
+
+        <div id="con"></div>
+      </div>
+    </div>
+
+    <script>
+      const url = "https://restcountries.com/v3.1/name/";
+      const search = document.getElementById("search");
+      const con = document.getElementById("con");
+
+      const country = () => {
+        let input = document.getElementById("input").value;
+
+        fetch(`${url}${input}?fullText=true`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+
+            document.getElementById("con").innerHTML = `
+            <div>
+            <h1>${data[0].name.common}</h1>
+            <div>
+              <h1>flag</h1>
+              <img src=${data[0].flags.png} alt=${data[0].flags.alt} width="100px" />
+            </div>
+            <div>
+              <h1>icon</h1>
+              <img src=${data[0].coatOfArms.png} alt=${data[0].coatOfArms.alt} width="100px" />
+            </div>
+            <h1>caputal : ${data[0].capital[0]}</h1>
+            <h1>population : ${data[0].population}</h1>
+            <h1>region : ${data[0].region}</h1>
+            <h1>startOfWeek : ${data[0].startOfWeek}</h1>
+            <h1>status : ${data[0].status}</h1>
+            <h1>subregion : ${data[0].subregion}</h1>
+            <h1>timezones : ${data[0].timezones[0]}</h1>
+          </div>
+
+            `;
+          });
+      };
+      // console.log(country());
+      search.addEventListener("click", country);
+    </script>
+  </body>
+</html>
