@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>start stop</title>
+  </head>
+  <body>
+    <div>
+      <h1>Hello Bro</h1>
+
+      <h1>BG color is <span id="colorName">FFFFFF</span></h1>
+
+      <div>
+        <button id="start">Start</button>
+        <br />
+        <br />
+        <button id="end">End</button>
+      </div>
+    </div>
+
+    <script>
+      let interval = null;
+      let count = 1;
+      let letsStart = (n) => {
+        console.log(n, count++, randonBG());
+        document.body.style.backgroundColor = randonBG();
+        document.getElementById("colorName").innerHTML = randonBG();
+      };
+
+      let randonBG = () => {
+        let allCol = "ABCDEF0123456789";
+        let finalBG = "#";
+        for (let i = 0; i < 6; i++) {
+          finalBG += allCol[Math.floor(Math.random() * allCol.length)];
+        }
+        console.log(finalBG);
+
+        return finalBG;
+      };
+
+      document.getElementById("start").addEventListener("click", () => {
+        if (!interval) {
+          interval = setInterval(letsStart, 1000, "whoami");
+          console.log("Started");
+        }
+      });
+      document.getElementById("end").addEventListener("click", () => {
+        clearInterval(interval);
+        console.log("stoppeed");
+        interval = null;
+      });
+    </script>
+  </body>
+</html>
