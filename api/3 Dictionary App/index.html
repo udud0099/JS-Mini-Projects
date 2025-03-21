@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary App</title>
+  </head>
+  <body>
+    <audio id="sound"></audio>
+    <div>
+      <h1>Hello Bro</h1>
+      <div>
+        <input type="text " id="input" />
+        <br />
+        <button id="search">search</button>
+      </div>
+      <br />
+      <br />
+      <div id="result">
+        
+    </div>
+
+    <script>
+      const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+      const result = document.getElementById("result");
+      const sound = document.getElementById("sound");
+
+      const search = document.getElementById("search");
+
+      search.addEventListener("click", () => {
+        let input = document.getElementById("input").value;
+        fetch(`${url}${input}`)
+          .then((response) => response.json())
+          .then((data) => {console.log(data)
+            result.innerHTML = `
+            <h1>${input}</h1>
+        <button    onclick="playSound()" >spek</button>
+        <div>
+          <p>${data[0].meanings[0].partOfSpeech}</p>
+          <p>/${data[0].phonetic}/</p>
+        </div>
+        <div>
+          <p>${data[0].meanings[0].definitions[0].definition}</p>
+          <p>${data[0].meanings[0].definitions[0].example || ""}</p>
+        </div>
+      </div>
+            `
+            sound.setAttribute("src", `${data[0].phonetics[0].audio}`);
+            console.log(sound);
+            
+          })
+          .catch( () =>{
+            result.innerHTML = `<h1> not found</h1>`
+          })
+      });
+
+      function playSound(){
+        sound.play()
+      }
+    </script>
+  </body>
+</html>
