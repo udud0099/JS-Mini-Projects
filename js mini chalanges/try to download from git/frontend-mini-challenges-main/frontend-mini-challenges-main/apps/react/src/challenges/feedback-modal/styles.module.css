@@ -1,0 +1,182 @@
+.feedbackContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.feedbackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(171, 95, 196);
+  border: 0;
+  border-radius: 5px;
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 50%);
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  min-height: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 40%);
+}
+
+.iconContainer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px 5px;
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 10px 1px;
+  cursor: pointer;
+}
+
+.iconItem:hover {
+  background-color: darkgray;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 30%);
+  transition: all 200ms ease;
+}
+
+.active {
+  background-color: rgb(188, 162, 213);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 30%);
+}
+
+.iconImage {
+  width: 40px;
+  height: 40px;
+}
+
+.iconItem p {
+  margin: 5px;
+  font-size: small;
+  color: rgba(0, 0, 0, 70%);
+}
+
+.modalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+}
+
+.modalContent h1 {
+  top: 35px;
+  font-size: 25px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 80%);
+}
+
+.feedbackContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackResponse {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 120px;
+  margin-bottom: 30px;
+  background-color: rgb(188, 162, 213, 30%);
+  border: 1px solid grey;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 30%);
+}
+
+@media (width <= 510px) {
+  .feedbackContainer {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .feedbackResponse {
+    width: auto;
+    height: 150px;
+  }
+
+  .feedbackResponse p {
+    text-align: center;
+    text-wrap: wrap;
+  }
+
+  .modalContent {
+    width: 90%;
+    max-width: 200px;
+    padding: 10px;
+  }
+
+  .feedbackContent textarea {
+    width: 100%;
+    font-size: 10px;
+  }
+
+  .feedbackBtn {
+    width: 80px;
+    height: 25px;
+  }
+
+  .iconItem {
+    width: 60px;
+    height: 60px;
+  }
+
+  .iconImage {
+    width: 30px;
+    height: 30px;
+  }
+
+  .iconContainer {
+    flex-wrap: wrap;
+  }
+
+  .modalClose {
+    top: 5px;
+    right: 5px;
+    font-size: 16px;
+  }
+}

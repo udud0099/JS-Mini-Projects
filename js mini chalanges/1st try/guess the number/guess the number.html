@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Enter between 0 to 10</p>
+
+    <input type="text" id="box" placeholder="Guess the number" />
+    <br />
+    <input id="submit" type="submit" />
+    <button id="restart" onclick="window.location.reload();">Restart</button>
+
+    <h1 id="message"></h1>
+    <h1 id="allval"></h1>
+
+    <script>
+      document.getElementById("restart").disabled = true;
+      const randomNo = Math.floor(Math.random() * 11);
+      const textbox = document.getElementById("box");
+      const message = document.getElementById("message");
+      const allval = [];
+      textbox.addEventListener("change", () => {
+        const value = Number(textbox.value);
+        console.log(value);
+        if (value < 11 && value > -1) {
+          if (value > randomNo) {
+            message.innerHTML = "Number To high";
+          } else if (value < randomNo) {
+            message.innerHTML = "Number To low";
+          } else if (value === randomNo) {
+            message.innerHTML = "You win";
+            document.getElementById("submit").disabled = true;
+            document.getElementById("restart").disabled = false;
+          }
+          allval.push(value);
+          document.getElementById("allval").innerHTML = allval;
+        } else if (value >= 11 && value >= -1) {
+          message.innerHTML = "plz put the number in range";
+        } else {
+          message.innerHTML = "plz put the number";
+        }
+      });
+      function restart() {}
+
+      console.log(randomNo);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(0, 27, 31);
+      }
+      .todoBox {
+        margin: 40px auto;
+        background-color: white;
+        width: 480px;
+        padding: 30px;
+      }
+      .todoBox h1 {
+        text-align: center;
+        padding: 20px 0;
+      }
+      .inputPart input {
+        padding: 5px 10px;
+        font-size: 24px;
+      }
+      .inputPart button {
+        background-color: rgb(0, 27, 31);
+        border: none;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-size: 20px;
+      }
+      .todoList {
+        margin: 20px 0;
+        max-height: 450px;
+        overflow: auto;
+      }
+      .todoList div {
+        background-color: rgb(0, 27, 31);
+        padding: 10px;
+        color: white;
+        margin: 20px 0;
+        width: 400px;
+        position: relative;
+        border-radius: 5px;
+      }
+      .todoList div span {
+        cursor: pointer;
+        right: 10px;
+        position: absolute;
+      }
+    </style>
+    <div class="todoBox">
+      <h1>ToDo App</h1>
+      <div class="inputPart">
+        <input type="text" placeholder="Enter your Text." />
+        <button>Add</button>
+      </div>
+      <div class="todoList">
+        <div>But pen for Exam <span>D</span></div>
+      </div>
+    </div>
+  </body>
+</html>

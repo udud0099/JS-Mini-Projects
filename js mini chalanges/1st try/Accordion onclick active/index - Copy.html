@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      h1 {
+        margin: 50px;
+        background-color: blue;
+        color: white;
+        padding: 50px;
+      }
+      .active {
+        background-color: red;
+      }
+      .de {
+        background-color: rgb(110, 110, 110);
+      }
+    </style>
+    <h1>ok</h1>
+    <h1>ok</h1>
+    <h1>ok</h1>
+    <h1>ok</h1>
+
+    <script>
+      let item = document.querySelectorAll("h1");
+
+      for (let i = 0; i < item.length; i++) {
+        item[i].addEventListener("click", function myFun() {
+          item[i].classList.toggle("active");
+          //   if (i != item[i]) {
+          //     item[i].classList.add("de");
+          //   }
+        });
+      }
+    </script>
+  </body>
+</html>

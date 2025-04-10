@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: gray;
+      }
+      .mainBox {
+        background-color: rgb(1, 131, 218);
+        border-radius: 5px;
+        width: 70vw;
+        margin: 20px auto;
+      }
+      .mainBox .head {
+        padding: 10px 0;
+        padding: 10px 20px;
+        color: white;
+      }
+      .head .title,
+      .head .addsub {
+        display: inline-block;
+      }
+      .head .addsub {
+        float: right;
+      }
+      .mainBox .boxBody {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: white;
+      }
+      .add {
+        display: block;
+      }
+      .sub,
+      .boxBody {
+        display: none;
+      }
+      .active .add {
+        display: none;
+      }
+      .active .sub,
+      .active .boxBody {
+        display: block;
+      }
+    </style>
+    <div class="mainBox">
+      <div class="head">
+        <div class="title"><h1>What is javascript ?</h1></div>
+        <div class="addsub">
+          <span class="add"><h1>+</h1></span>
+          <span class="sub"><h1>-</h1></span>
+        </div>
+      </div>
+      <div class="boxBody">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        labore quaerat facilis numquam fugiat quas, aut repudiandae nostrum,
+        quasi repellendus ducimus incidunt impedit hic error ullam totam atque
+        at perferendis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Reiciendis labore quaerat facilis numquam fugiat quas, aut repudiandae
+        nostrum, quasi repellendus ducimus incidunt impedit hic error ullam
+        totam atque at perferendis. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Reiciendis labore quaerat facilis numquam fugiat quas,
+        aut repudiandae nostrum, quasi repellendus ducimus incidunt impedit hic
+        error ullam totam atque at perferendis.
+      </div>
+    </div>
+    <div class="mainBox">
+      <div class="head">
+        <div class="title"><h1>What is javascript ?</h1></div>
+        <div class="addsub">
+          <span class="add"><h1>+</h1></span>
+          <span class="sub"><h1>-</h1></span>
+        </div>
+      </div>
+      <div class="boxBody">
+        s incidunt impedit hic error ullam totam atque at perferendis. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Reiciendis labore
+        quaerat facilis numquam fugiat quas, aut repudiandae nostrum, quasi
+        repellendus ducimus incidunt impedit hic error ullam totam atque at
+        perferendis.
+      </div>
+    </div>
+    <div class="mainBox">
+      <div class="head">
+        <div class="title"><h1>What is javascript ?</h1></div>
+        <div class="addsub">
+          <span class="add"><h1>+</h1></span>
+          <span class="sub"><h1>-</h1></span>
+        </div>
+      </div>
+      <div class="boxBody">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        labore quaerat facilis numquam fugiat quas, aut repudiandae nostrum,
+        quasi repellendus ducimus incidunt impedolor sit amet consectetur
+        adipisicing elit. Reiciendis labore quaerat facilis numquam fugiat quas,
+        aut repudiandae nostrum, quasi repellendus ducimus incidunt impedit hic
+        error ullam totam atque at perferendis.
+      </div>
+    </div>
+    <div class="mainBox">
+      <div class="head">
+        <div class="title"><h1>What is javascript ?</h1></div>
+        <div class="addsub">
+          <span class="add"><h1>+</h1></span>
+          <span class="sub"><h1>-</h1></span>
+        </div>
+      </div>
+      <div class="boxBody">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+        labore quaerat facilis numquam fugiat quas, aut repudiandae nostrum,
+        quasi repellendus ducimus incidunt impedit hic error ullam totam atque
+        at perferendis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Reiciendis labore quaerat facilis numqua
+      </div>
+    </div>
+
+    <script>
+      let a = document.querySelectorAll(".mainBox");
+      for (let i = 0; i < a.length; i++) {
+        a[i].addEventListener("click", () => {
+          a[i].classList.toggle("active");
+        });
+      }
+    </script>
+  </body>
+</html>

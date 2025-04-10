@@ -1,0 +1,47 @@
+<nav class="challenge-navbar">
+  <div class="left">
+    <a [href]="backURL" class="back"> &lt; </a>
+    <a [href]="homeURL" class="logo">
+      <img
+        src="https://github.com/sadanandpai/frontend-mini-challenges/raw/main/shared/assets/core/logo.png"
+        alt="logo"
+      />
+    </a>
+  </div>
+
+  <h1 class="title">{{ title }}</h1>
+
+  <div class="right">
+    <div class="responsive_nav">
+      <div class="hamburger">
+        <input type="checkbox" />
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="cross mobile">&#x2715;</div>
+
+        <section class="menu">
+          <a
+            [href]="angularSourceCodeURL"
+            target="_blank"
+            rel="noreferrer"
+            class="source-code"
+            title="Source Code"
+          >
+            <img src="assets/icons/code.svg" alt="source code" />
+            <span class="mobile">Source code</span>
+          </a>
+          <a
+            target="blank"
+            class="github"
+            title="Github Repo"
+            href="https://github.com/sadanandpai/frontend-mini-challenges/"
+          >
+            <img src="assets/icons/github.svg" alt="github repo" />
+            <span class="mobile">Github Repo</span>
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+</nav>

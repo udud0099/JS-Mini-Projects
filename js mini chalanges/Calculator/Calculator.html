@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        /* font-size: 36px; */
+        text-align: center;
+        background-color: rgb(0, 29, 17);
+      }
+      .calBox {
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 5px;
+        padding: 20px;
+        display: inline-block;
+        margin-top: 100px;
+      }
+      .calBox button {
+        font-weight: 600;
+        width: 70px;
+        height: 70px;
+        margin: 10px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 50%;
+        font-size: 26px;
+        color: white;
+      }
+      input {
+        width: 350px;
+        height: 60px;
+        font-size: 36px;
+        text-align: right;
+        border: none;
+        background-color: rgba(255, 255, 255, 0);
+        color: white;
+      }
+      input::placeholder {
+        color: white;
+      }
+    </style>
+    <div>
+      <div class="calBox">
+        <input id="input" type="text" placeholder="0" />
+        <div class="firstRow">
+          <button onclick="{document.getElementById('input').value = ''}">
+            AC
+          </button>
+          <button
+            onclick="{document.getElementById('input').value = document.getElementById('input').value.toString().slice(0,-1)}"
+          >
+            DEL
+          </button>
+          <button onclick="{document.getElementById('input').value += '.'}">
+            .
+          </button>
+          <button onclick="{document.getElementById('input').value += '%'}">
+            %
+          </button>
+        </div>
+        <div class="firstRow">
+          <button onclick="{document.getElementById('input').value += '1'}">
+            1
+          </button>
+          <button onclick="{document.getElementById('input').value += '2'}">
+            2
+          </button>
+          <button onclick="{document.getElementById('input').value += '3'}">
+            3
+          </button>
+          <button onclick="{document.getElementById('input').value += '/'}">
+            /
+          </button>
+        </div>
+        <div class="firstRow">
+          <button onclick="{document.getElementById('input').value += '4'}">
+            4
+          </button>
+          <button onclick="{document.getElementById('input').value += '5'}">
+            5
+          </button>
+          <button onclick="{document.getElementById('input').value += '6'}">
+            6
+          </button>
+          <button onclick="{document.getElementById('input').value += '*'}">
+            *
+          </button>
+        </div>
+        <div class="firstRow">
+          <button onclick="{document.getElementById('input').value += '7'}">
+            7
+          </button>
+          <button onclick="{document.getElementById('input').value += '8'}">
+            8
+          </button>
+          <button onclick="{document.getElementById('input').value += '9'}">
+            9
+          </button>
+          <button onclick="{document.getElementById('input').value += '-'}">
+            -
+          </button>
+        </div>
+        <div class="firstRow">
+          <button onclick="{document.getElementById('input').value += '00'}">
+            00
+          </button>
+          <button onclick="{document.getElementById('input').value += '0'}">
+            0
+          </button>
+          <button
+            onclick="{document.getElementById('input').value = eval(document.getElementById('input').value)}"
+          >
+            =
+          </button>
+          <button onclick="{document.getElementById('input').value += '+'}">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

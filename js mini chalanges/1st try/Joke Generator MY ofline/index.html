@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Lets laff we</h1>
+    <p id="showjoke"></p>
+    <button onclick="newjoke()">New joke</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="text" name="" id="newjokebox" />
+    <button onclick="addjoke()"><span>add new joke</span></button>
+    <script>
+      let jokelist = [
+        "1joke",
+        "2joke",
+        "3joke",
+        "4joke",
+        "5joke",
+        "6joke",
+        "7joke",
+        "8joke",
+      ];
+
+      function addjoke() {
+        let newadd = document.getElementById("newjokebox").value;
+        if (newadd != "") {
+          jokelist.push(newadd);
+          console.log(jokelist);
+          document.getElementById("newjokebox").value = "";
+        }
+      }
+      let jokeno = Math.floor(Math.random() * jokelist.length);
+      document.getElementById("showjoke").innerHTML = jokelist[jokeno];
+      function newjoke() {
+        let jokeno = Math.floor(Math.random() * jokelist.length);
+        document.getElementById("showjoke").innerHTML = jokelist[jokeno];
+        console.log(jokelist[jokeno]);
+      }
+    </script>
+  </body>
+</html>

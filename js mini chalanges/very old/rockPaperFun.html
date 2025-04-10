@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rock paper seasor</title>
+    <style>
+      #afterplay {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>chose you</h1>
+    <!-- <button id="1">Button 1</button> -->
+    <button type="button" value="1" onclick="f1(this)">Rock</button>
+    <button type="button" value="2" onclick="f1(this)">Paper</button>
+    <button type="button" value="3" onclick="f1(this)">Seasor</button>
+
+    <br />
+    <div id="afterplay">
+      <h1>result</h1>
+      You : <button id="myChoice">R</button> Computer :
+      <button id="comChoice">R</button> <label id="reasult"></label>
+
+      <br />
+      <h1>Total Score</h1>
+      <p id="totsco"></p>
+    </div>
+
+    <script type="text/javascript">
+      let my;
+      const rpc = ["Rock", "Paper", "Siser"];
+      let win = 0;
+      let loss = 0;
+      let draw = 0;
+
+      function f1(x) {
+        document.getElementById("afterplay").style.display = "block";
+
+        let com = Math.ceil(Math.random() * 3);
+        let rea = "";
+        // alert(x.value);
+        my = x.value * 1;
+        document.getElementById("myChoice").innerHTML = rpc[my - 1];
+        document.getElementById("comChoice").innerHTML = rpc[com - 1];
+        if (my == com) {
+          rea = "Draw";
+          draw++;
+        } else if (
+          (my == 1 && com == 2) ||
+          (my == 2 && com == 3) ||
+          (my == 3 && com == 1)
+        ) {
+          rea = "Lose";
+          loss++;
+        } else if (
+          (my == 1 && com == 3) ||
+          (my == 2 && com == 1) ||
+          (my == 3 && com == 2)
+        ) {
+          rea = "Win";
+          win++;
+        }
+        document.getElementById("reasult").innerHTML = `Reasult : ${rea}`;
+        document.getElementById(
+          "totsco"
+        ).innerHTML = `Win : ${win}, Loss : ${loss}, Draw : ${draw}`;
+      }
+
+      // function getvalue(){
+      //     // document.getElementById("myChoice").innerHTML = rpc[my-1];
+      //     console.log(my);
+      //     alert(my);
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "@fmc/shared-styles",
+  "private": true,
+  "files": [
+    "*"
+  ],
+  "exports": {
+    "./*": {
+      "import": "./*.css",
+      "require": "./*.css"
+    }
+  }
+}

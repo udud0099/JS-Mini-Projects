@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .active {
+        /* background-color: yellow; */
+      }
+      .button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 30px;
+        cursor: pointer;
+      }
+    </style>
+    <h1 id="bullHead">Bull Off</h1>
+    <img id="img" src="off.jpg" alt="" width="500px" />
+    <br />
+    <button class="button" onclick="off()" id="off">Off</button>
+    <button class="button" onclick="on()" id="on">On</button>
+    <script>
+      let bull = document.querySelector("#bullHead");
+      let img = document.querySelector("#img");
+      let onid = document.querySelector("#on");
+      let offid = document.querySelector("#off");
+      offid.style.backgroundColor = "yellow";
+      onid.style.backgroundColor = "#ddd";
+      function off() {
+        bull.innerHTML = "Bull off";
+        img.src = "off.jpg";
+        onid.style.backgroundColor = "#ddd";
+        offid.style.backgroundColor = "yellow";
+      }
+      function on() {
+        bull.innerHTML = "Bull On";
+        img.src = "on.jpg";
+        offid.style.backgroundColor = "#ddd";
+        onid.style.backgroundColor = "yellow";
+      }
+    </script>
+  </body>
+</html>

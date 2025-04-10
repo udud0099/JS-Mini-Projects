@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" />
+      <h1></h1>
+      onclick="{document.getElementById('input').value =
+      document.getElementById('input').value.toString().slice(0,-1)}"
+
+      <script>
+        let inp = document.querySelector("input");
+        let vall = document.querySelector("h1");
+        let valLen = 0;
+        inp.addEventListener("input", () => {
+          valLen = String(inp.value).length;
+          console.log(valLen);
+          if (valLen === 4) {
+            inp.value = `+(${inp.value.toString().slice(0, -1)}) - ${inp.value
+              .toString()
+              .slice(2, 3)}`;
+          }
+          vall.innerHTML = inp.value;
+        });
+      </script>
+    </div>
+  </body>
+</html>

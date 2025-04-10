@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="num">0</h1>
+    <button id="sub" onclick="change('sub')">-</button>
+    <br />
+    <button id="add" onclick="change('add')">+</button>
+    <br />
+    <span>inc / dec By</span><input type="number" id="incerseBy" value="1" />
+    <br />
+    <button id="reset" onclick="reset()">Reset</button>
+    <script>
+      let n = 0;
+      let iv = 1;
+      //   document.getElementById("searchTxt").value;
+      var userDateEntry = document.getElementById("incerseBy");
+      userDateEntry.addEventListener("change", function () {
+        iv = document.getElementById("incerseBy").value;
+      });
+      function change(a) {
+        if (a === "sub") {
+          n = n - Number(iv);
+          document.getElementById("num").innerHTML = n;
+        } else if (a === "add") {
+          n = n + Number(iv);
+          document.getElementById("num").innerHTML = n;
+        }
+      }
+      function reset() {
+        n = 0;
+        iv = 1;
+        document.getElementById("incerseBy").value = iv;
+        document.getElementById("num").innerHTML = n;
+      }
+    </script>
+  </body>
+</html>

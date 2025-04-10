@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: rgb(0, 0, 59);
+}
+.todoBox {
+  text-align: center;
+  background-color: white;
+  margin: 0 auto;
+  padding: 50px;
+  width: 40vw;
+}
+.todoBox h1 {
+  font-size: 48px;
+  padding: 30px 0;
+}
+.todoBox input {
+  border: 1px solid rgb(60, 184, 255);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 24px;
+}
+.todoBox button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 59);
+  font-size: 24px;
+  border: 0;
+  color: white;
+}
+.todoBox p {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 59);
+  font-size: 24px;
+  border: 0;
+  color: white;
+  width: 27vw;
+  text-align: left;
+  margin: 10px auto;
+  position: relative;
+}
+.todoBox p span {
+  margin-right: 0;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+.todoBox p span:hover {
+  color: red;
+}
+div ul {
+  list-style: none;
+}
+.taskCompleted {
+  text-decoration-line: line-through;
+}
